@@ -1,0 +1,51 @@
+/* car filter */
+.filter_car .car_type{
+    width: 100%;
+}
+.filter_car .Mileage{
+    width: 100%;
+}
+.filter_car .brand{
+    width: 100%;
+}
+
+
+/* car's card */
+/* catolog */
+.catalog_wrapper .car_cantainer{
+    flex-direction: column;
+    padding: 20px;
+    margin-bottom: 14px;
+}
+.catalog_wrapper .car_items_container{
+    width: 100%;
+}
+.catalog_wrapper .img_container{
+    align-items: center;
+    flex-direction: column; 
+    margin-right: 0;
+    margin-bottom: 20px;
+    width: 100%;
+}
+.catalog_wrapper .car_cantainer img{
+    height: 305px;
+    object-fit: scale-down;
+}
+
+/* footer */
+.footer_down{
+    padding-bottom: 20px;
+}
+.footer_down .text_container{
+    margin-bottom: 16px;
+}
+footer .information_container{
+    margin-bottom: 0;
+    flex-direction: column;
+}
+footer .phone_number_one,footer .phone_number_two{
+    margin-bottom: 16px;
+}
+footer .phone_number_two{
+    margin-top: 0;
+}

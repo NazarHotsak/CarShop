@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Customer>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="~/css/reset.css">
+    <link rel="stylesheet" href="~/css/style_customer.css">
+</head>
+<body>
+    <header>
+        <div class="container">Customers</div>
+    </header>
+
+    <div class="customers_data_wrapper container">
+
+        @foreach (var customer in Model)
+        {
+            <div class="customer">
+                <div class="name">@customer.Name</div>
+                <div class="phone_number">@customer.PhoneNumber</div>
+                @if (customer.Shipped == false)
+                {
+                    <form asp-action="Ship" class="order">
+                        <input type="hidden" name="CustomerId" value="@customer.CustomerId">
+                        <button type="submit" class="action">Ship</button>
+                    </form>
+                }
+                else
+                {
+                    <div class="done action order">Done</div>
+                }
+
+            </div>
+        }
+
+    </div>
+</body>
+</html>
+
+

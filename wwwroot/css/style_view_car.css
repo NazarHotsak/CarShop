@@ -1,0 +1,179 @@
+.breadcrumbs{
+    margin-top: 24px;
+}
+
+/* slider */
+.skroll_slider_container{
+    overflow: hidden;
+    height: 255px;
+    user-select: none;
+}
+.scroll_slider{
+    transition: transform .7s;
+    display: flex;
+    user-select: none;
+}
+.img_slide{
+    max-width: 370px;
+    user-select: none;
+    width: 100%;
+    margin-right: 8px;
+    object-fit: cover;
+}
+
+
+
+
+
+
+
+/* car's card */
+/* buttons */
+.card_overflow_hidden{
+    overflow-x: hidden;
+}
+.card_type_container{
+    max-width: 691px;
+    border-bottom: 1px solid #E2E2E2;    
+    font-size: 14px;
+    margin-top: 24px;
+    font-weight: 500;
+    margin-bottom: 29px;
+}
+.card_type_container .slide_card_type{
+    width: 691px;
+    display: flex;
+}
+.card_type_container .slide_card_type .card_type{
+    padding: 12px 4px;
+    margin-right: 24px;
+    cursor: pointer;
+    position: relative;
+}
+.card_type_container .active{
+    color: black;
+}
+.card_type_container .active::after{
+    content: "";
+    bottom: -1px;
+    right: 0px;
+    position: absolute;
+    height: 1px;
+    background-color: #CD0000;
+    display: block;
+    width: 100%;
+}
+/* card_imformation_wrapper */
+.card_imformation_wrapper {
+    color: black;
+    display: flex;
+    justify-content: space-between;
+}
+.card_imformation_container{
+    max-width: 691px;
+}
+.card_imformation_wrapper .options{
+    color: #8B8B8B;
+    display: flex;    
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /*white-space: pre-wrap;*/
+
+}
+.card_imformation_wrapper .description p{
+    margin: 25px 0;
+}
+.card_imformation_wrapper .description .first{
+    margin-top: 0;
+}
+.card_imformation_wrapper .options span{
+    color: black;
+}
+.card_imformation_wrapper .options div{
+    width: 49.5%;
+    margin-bottom: 16px;
+}
+.card_imformation_wrapper .card_imformation{
+    overflow: hidden;
+    height: 0;
+}
+.card_imformation_wrapper .card_buying_container{
+    min-width: 265px;
+    margin-left: 10px;
+}
+.card_imformation_wrapper .active{
+    height: auto;
+    animation: cardAnim .6s;
+}
+.card_imformation_wrapper .bold_font{
+    margin-top: 8px;
+    margin-bottom: 2px;
+}
+.card_imformation_wrapper .price_in_city{
+    font-size: 18px;
+}
+.card_imformation_wrapper .below_price{
+    color: #8B8B8B;
+    font-size: 12px;
+}
+.card_imformation_wrapper .advice{
+    padding: 16px 24px;
+    color: #fff;
+    max-width: 233px;
+    border-radius: 4px;
+    text-align: center;
+    background: #CD0000;
+    margin-top: 32px;
+    margin-bottom: 16px;
+    display: block;
+    cursor: pointer;
+}
+.card_imformation_wrapper .application{
+    padding: 14px 24px;
+    display: block;
+    max-width: 169px;
+    color: #CD0000;
+    border: 1px solid #CACACA;
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+}
+
+/* footer */
+.footer_down{
+    margin-top: 71px;
+}
+
+@keyframes cardAnim {
+    from{
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media screen and (max-width: 990px) {
+    .card_imformation_wrapper {
+        flex-direction: column;
+    }
+    .card_imformation_wrapper .card_buying_container{
+        margin-left: 0;
+        min-width: none;
+        margin-top: 28px;
+        padding: 16px 0;
+        border-top: 1px solid #E2E2E2;
+        border-bottom: 1px solid #E2E2E2;
+        text-align: center;
+    }
+    .card_imformation_wrapper .advice{
+        margin: 22px auto;
+        max-width: 361px;
+    }
+    .card_imformation_wrapper .application{
+        margin: 0 auto;
+        max-width: 361px;
+    }    
+}

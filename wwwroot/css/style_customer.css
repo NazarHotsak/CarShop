@@ -1,0 +1,70 @@
+body{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    line-height: 1;
+}
+
+header{
+    color: #fff;
+    font-size: 21px;
+    padding: 26px 0;
+    background-color: rgb(159, 78, 221);
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+/* customer */
+.customers_data_wrapper{
+    max-width: 850px;
+    margin: 0 auto; 
+    margin-top: 50px;
+}
+.customers_data_wrapper .customer{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid rgba(159, 78, 221, 0.478);
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin-top: 20px;
+}
+.customers_data_wrapper .customer:last-child{
+    margin-bottom: 20px;
+}
+.customers_data_wrapper .customer div{
+    padding: 10px 0;
+}
+.customers_data_wrapper .customer .name{
+    padding-right: 20px;
+}
+.customers_data_wrapper .customer .name,
+.customers_data_wrapper .customer .phone_number
+{
+    font-weight: 600;
+}
+.customers_data_wrapper .customer .phone_number{
+    margin-right: 0;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+.customers_data_wrapper .customer .action{
+    background-color: rgb(159, 78, 221);
+    border-style: none;
+    padding: 5px 20px;
+    color: #fff;
+    border-radius: 5px;
+    margin: 5px 0;
+    cursor: pointer;
+}
+.customers_data_wrapper .customer .done{
+    padding: 6px 16.7px;
+    cursor: no-drop;
+}
+.customers_data_wrapper .customer .order{
+    margin-right: 80%;
+}

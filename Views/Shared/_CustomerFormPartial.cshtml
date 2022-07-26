@@ -1,0 +1,11 @@
+﻿@model Customer
+
+<form asp-action="Sent" asp-controller="Order" method="post" onsubmit="checkData(event)" class="customer_wrapper">
+    <div class="btn_close" title="close" onclick="turnPopUpOff()"></div>
+    <div class="font_24px_700_black customer_title">Зворотній зв'язок</div>
+    <div>Ваше ім'я</div>
+    <input asp-for="Name" type="text" data-data-type="name" placeholder="Ввести" class="customer_name">
+    <div>контактний телефон</div>
+    <input asp-for="PhoneNumber" type="text" data-data-type="phoneInUA" placeholder="+380" class="customer_phone">
+    <button type="submit">Проконсультувати безкоштовно</button>
+</form>

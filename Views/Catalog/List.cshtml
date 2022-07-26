@@ -1,0 +1,66 @@
+﻿@model CatalogCarList
+
+@{
+    ViewData["link"] = "~/css/style_catalog.css";
+    ViewData["js"] = new string[] { "~/js/carFilter.js" };
+}
+
+<div class="filter_car_wrapper_list">
+    <div class="container">
+
+        <div class="breadcrumbs">
+            <div>Главная</div>
+            <div>Контакты</div>
+        </div>
+
+        <h1 class="bold_font">Каталог техники</h1>
+
+        @await Component.InvokeAsync("CarFilter", new{ sortParameters = Model.SortParameters, carFilter = Model.CarFilter })
+
+    </div>
+</div>
+
+<div class="container">
+    <div class="famous_cars font_24px_700_black">Популярні авто</div>
+
+
+    <div class="car_status_wrapper">
+        <div class="radio_container">
+            <input type="radio" name="StatusCar" id="StatusCar" value="" class="car_status StatusCar" data-sortParameterName="StatusCar" @(ViewBag.statusCar == null ? "checked" : "")>
+            <div>Любі</div>
+        </div>
+        <div class="radio_container">
+            <input type="radio" name="StatusCar" id="StatusCar" value="0" class="car_status StatusCar" data-sortParameterName="StatusCar" @(ViewBag.statusCar == StatusCar.InStock ? "checked" : "")>
+            <div>В наявності</div>
+        </div>
+        <div class="radio_container">
+            <input type="radio" name="StatusCar" id="StatusCar" value="1" class="car_status StatusCar" data-sortParameterName="StatusCar" @(ViewBag.statusCar == StatusCar.OnOrder ? "checked" : "")>
+            <div>Під замовлення</div>
+        </div>
+    </div>
+
+
+    <div class="catalog_wrapper">
+
+        @foreach (var car in @Model.Cars)
+        {
+            <partial name="_ListCarsPartial" model="@car" />
+        }
+
+    </div>
+
+
+
+    <div page-model="@Model.PagingInfo"
+         page-action="List"
+         page-class-active="active"
+         page-class-next-page="next_page"
+         page-class-previous-page="previous_page"
+         page-class-paging="paging_btn"
+         page-url-sortParameters="@Model.SortParameters"
+         class="paging_wrapper">
+    </div>
+
+</div>
+
+@*page-search-setting="@Model.SearchSetting"*@

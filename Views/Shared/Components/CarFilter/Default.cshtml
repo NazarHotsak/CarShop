@@ -1,0 +1,57 @@
+﻿@model CarFilterModel
+
+<div class="filter_car">
+    <div class="checkbox_filter_wrapper">
+
+        <div class="checkbox_contaimer">
+            <input id="FullDuty" class="checkbox FullDuty" data-sortParameterName="FullDuty" type="checkbox" @(Model.SortParametersFilter.FullDuty ? "checked" : "")>
+            <label for="FullDuty" id="FullDuty">Повне мито</label>
+        </div>
+        <div class="checkbox_contaimer">
+            <input id="Cut" class="checkbox Cut" data-sortParameterName="Cut" type="checkbox" @(Model.SortParametersFilter.Cut ? "checked" : "")>
+            <label for="Cut" id="Cut">Розпил або конструктор</label>
+        </div>
+    </div>
+
+    <div class="filter_select">
+
+        <div class="search_select_container car_type">
+            <p>КПП</p>
+            <div class="search_select_arrowDown">
+                <select asp-items="Model.GearboxTypes" class="search_select GearboxType" data-sortParameterName="GearboxType">
+                    <option selected value="">Не вибрано</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="search_select_container Mileage">
+            <p>Привод</p>
+            <div class="search_select_arrowDown">
+                <select asp-items="Model.DriveTypes" class="search_select DriveType" data-sortParameterName="DriveType">
+                    <option selected value="">Не вибрано</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="search_select_container brand">
+            <p>Марка</p>
+            <div class="search_select_arrowDown">
+                <select asp-items="Model.BrandTypes" class="search_select BrandType" data-sortParameterName="BrandType">
+                    <option selected value="">Не вибрано</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="search_select_container">
+            <p>Ціна в &#8372;</p>
+            <input class="input_year Price" data-sortParameterName="Price" data-sortParameterDataType="range-from" type="number" min="1" value="@(Model.SortParametersFilter.PriceFrom ?? 1)">
+            <input class="input_year Price" data-sortParameterName="Price" data-sortParameterDataType="range-to" type="number" min="1" value="@(Model.SortParametersFilter.PriceTo ?? 2450000)">
+        </div>
+
+        <a asp-protocol="https" asp-host="localhost:44310" asp-controller="Catalog" asp-action="List" asp-route-page="1" asp-route-sortParameters="@Model.SortParameters" class="Btn_submit">Найти</a>
+    </div>
+    <div class="cars_in_stock">
+        Автомобилей в наличии:
+        <span class="count_cars_in_stock">@ViewData["TotalItems"]</span>
+    </div>
+</div>

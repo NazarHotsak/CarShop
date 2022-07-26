@@ -1,0 +1,180 @@
+﻿@model IndexModel
+
+@{
+    ViewData["link"] = "~/css/style_index.css";
+    ViewData["js"] = new string[] { "~/js/check_form.js", "~/js/carFilter.js" };
+}
+
+<div class="header-down">
+    <div class="main-header__text">
+        Доставимо будь-яку техніку з Японії за 3 тижні
+    </div>
+</div>
+
+
+<div class="container">
+
+
+    @await Component.InvokeAsync("CarFilter")
+
+
+    <div class="famous_cars font_24px_700_black">Популярные автомобили</div>
+
+    <div class="catalog_wrapper">
+
+        @foreach (var car in @Model.Cars)
+        {
+            <partial name="_ListCarsPartial" model="@car" />
+        }
+
+    </div>
+
+    <a class="show_more" asp-action="List" asp-controller="Catalog">Показать ещё</a>
+
+    <div class="advantages_title font_24px_700_black">Наши преимущества</div>
+
+    <div class="advantages_wrapper">
+        <div class="advantage_contaimer">
+            <div class="font_18px_700_black">20 років на ринку</div>
+            <div>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis voluptate, error
+                neque voluptatibus veniam nam, placeat modi, adipisci voluptatum aliquid laudantium nobis
+                repudiandae atque.
+            </div>
+        </div>
+        <div class="advantage_contaimer">
+            <div class="font_18px_700_black">20 років на ринку</div>
+            <div>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis voluptate, error
+                neque voluptatibus veniam nam, placeat modi, adipisci voluptatum aliquid laudantium nobis
+                repudiandae atque quis cupiditate distinctio dolorum.
+            </div>
+        </div>
+        <div class="advantage_contaimer">
+            <div class="font_18px_700_black">20 років на ринку</div>
+            <div>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis voluptate, error
+                neque voluptatibus veniam nam, placeat modi, adipisci voluptatum aliquid laudantium nobis
+                repudiandae atque quis.
+            </div>
+        </div>
+        <div class="advantage_contaimer">
+            <div class="font_18px_700_black">20 років на ринку</div>
+            <div>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis voluptate, error
+                neque voluptatibus veniam nam, placeat modi, adipisci voluptatum aliquid laudantium nobis
+                repudiandae atque quis cupiditate distinctio dolorem.
+            </div>
+        </div>
+        <div class="advantage_contaimer">
+            <div class="font_18px_700_black">20 років на ринку</div>
+            <div>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis voluptate, error
+                neque voluptatibus veniam nam, placeat modi, adipisci voluptatum aliquid laudantium nobis
+                repudiandae atque quis cupiditate .
+            </div>
+        </div>
+        <div class="advantage_contaimer">
+            <div class="font_18px_700_black">20 років на ринку</div>
+            <div>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis voluptate, error
+                neque voluptatibus veniam nam, placeat modi, adipisci voluptatum aliquid laudantium nobis
+                repudiandae atque quis cupiditate distinctio dolorem dolorum tenetur.
+            </div>
+        </div>
+        <div class="advantage_contaimer">
+            <div class="font_18px_700_black">20 років на ринку</div>
+            <div>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis voluptate, error
+                neque voluptatibus veniam nam, placeat modi, adipisci voluptatum aliquid laudantium nobis.
+            </div>
+        </div>
+        <div class="advantage_contaimer">
+            <div class="font_18px_700_black">20 років на ринку</div>
+            <div>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis voluptate, error
+                neque voluptatibus veniam nam, placeat modi, adipisci voluptatum aliquid laudantium nobis
+                repudiandae atque quis.
+            </div>
+        </div>
+    </div>
+
+    <div class="steps_buying_title font_24px_700_black">Як відбувається покупка</div>
+
+    <div class="steps_buying_wrapper">
+        <div class="step_buying_contaimer resume">
+            <div class="font_16px_700_black">Оставляете заявку</div>
+            <div>Ви залишаєте заявку на сайті, або зв'язуєтеся з нами зручним для вас способом.</div>
+        </div>
+        <div class="step_buying_contaimer conversation">
+            <div class="font_16px_700_black">Укладаємо договір</div>
+            <div>Укладаємо договір. Ви вносите гарантійний депозит.</div>
+        </div>
+        <div class="step_buying_contaimer car">
+            <div class="font_16px_700_black">Підбір та покупка авто</div>
+            <div>
+                Вам пропонуються потрібні варіанти з аукціонів, Ви приймаєте рішення, автомобіль викуповується.
+            </div>
+        </div>
+        <div class="step_buying_contaimer ship">
+            <div class="font_16px_700_black">Доставка в Україну та оформлення</div>
+            <div>
+                Ми транспортуємо авто в порт Японії, вантажимо на судно та доставляємо до Владивостока, де проходить митне оформлення.
+            </div>
+        </div>
+        <div class="step_buying_contaimer truck">
+            <div class="font_16px_700_black">Доставка до вашого міста</div>
+            <div>
+                Ми доставляємо авто в будь-який регіон України у вибраний Вами спосіб.
+            </div>
+        </div>
+        <div class="step_buying_contaimer">
+            <div class="font_16px_700_black application" onclick="turnPopUpOn()">Залишити заявку</div>
+        </div>
+    </div>
+
+
+
+
+    <!-- contacts  -->
+    <div class="contact_us_wrapper">
+        <div class="font_24px_700_black contact_us_title">Як зв'язатися з нами?</div>
+
+        <div class="contacts_wrapper">
+            <div>
+                <div class="special_phone_number">
+                    <span class="phone_number">+38095737634</span>
+                    <span>для замовлення авто</span>
+                </div>
+                <div class="special_phone_number">
+                    <span class="phone_number">+380487487874</span>
+                    <span>для замовлення авто та мото техніки</span>
+                </div>
+                <div class="special_phone_number">
+                    <span class="phone_number">+380458754878754</span>
+                    <span>для замовлення спецтехніки</span>
+                </div>
+            </div>
+            <div>
+                <div class="phone_number_one">+380458754</div>
+                <div class="phone_number_two">+380458745</div>
+            </div>
+            <div class="gmail">lkjsdkjfhkjs@gmail.ua</div>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="goole_map">
+    <div class="container">
+        <partial name="_CustomerFormPartial" model="@Model.Customer" />
+    </div>
+</div>
+
+
+<div class="pop-up" style="display: none;">
+    <partial name="_CustomerFormPartial" model="@Model.Customer" />
+</div>
+
+

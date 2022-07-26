@@ -1,0 +1,79 @@
+/* paging */
+.paging_wrapper{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    margin-top: 53px;
+    margin-bottom: 81px;
+    color: black;
+}
+.paging_wrapper .paging_btn {
+    margin-left: 16px;
+    margin-right: 16px;
+}
+.paging_wrapper .paging_btn{
+    display: block;
+    box-sizing: content-box;
+    width: 6px;
+    height: 16px; 
+    padding: 8px 13px;
+    text-align: center;
+}
+.paging_wrapper .paging_btn:hover{
+    background: #F2F3F4;
+    border-radius: 50%;
+}
+.paging_wrapper .active{
+    color: #fff;
+    background: #CD0000;
+    border-radius: 50%;
+    pointer-events: none;
+}
+.paging_wrapper .arrow{
+    display: block;
+    position: absolute;
+    height: 16px;
+    top: 50%;
+    margin: 0;
+    transform: translateY(-50%);
+}
+.paging_wrapper .previous_page {
+    display: block;
+    position: absolute;
+    left: 0;       
+}
+.paging_wrapper .next_page {
+    display: block;
+    position: absolute;
+    right: 0;
+    transform: rotate(180deg);
+}
+.paging_wrapper .previous_page div, .paging_wrapper .next_page div{
+    height: 16px;
+    width: 18px;
+    background: url(../images/paging/Arrow.svg) no-repeat;
+}
+.paging_wrapper .previous_page div{
+      margin: 8px 16px 8px 0;
+}
+.paging_wrapper .next_page div{
+      margin: 8px 16px 8px 0;
+}
+.paging_wrapper .previous_page:hover div, .paging_wrapper .next_page:hover div{
+    background: url(../images/paging/Arrow-hover.svg) no-repeat;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

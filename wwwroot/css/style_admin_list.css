@@ -1,0 +1,82 @@
+﻿body{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+}
+
+.header{
+    color: #fff;
+    font-size: 21px;
+    padding: 20px 0;
+    background-color: rgb(159, 78, 221);
+    margin-left: 0;
+    position: relative;
+}
+.header .btn_create{
+    padding: 5px 20px;
+    background-color: rgb(78, 164, 221);
+    border-radius: 4px;
+    display: block;
+    color: #fff;
+    font-size: 14px;
+}
+.header .header_container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+.pull-down{
+    margin-left: 0;
+    padding-top: 0;
+}
+
+/* car's card */
+/* catolog */
+.catalog_wrapper{
+    margin: 25px 0;
+}
+.catalog_wrapper .car_cantainer{
+    border: 1px solid rgba(159, 78, 221, 0.500);
+}
+.catalog_wrapper .car_cantainer:hover{
+    box-shadow: 0px 9px 26px rgba(174, 114, 219, 0.286);
+}
+.catalog_wrapper .car_name:hover{
+    color: rgb(159, 78, 221);
+}
+
+
+
+/* btn_container */
+.btn_container{
+    display: flex;
+    justify-content: space-between;
+    border-radius: 4px;
+    border: 1px solid rgba(159, 78, 221, 0.500);   
+    margin-bottom: 48px;
+    padding: 10px;
+}
+.btn_container div{
+    display: flex;
+}
+.btn_container div a:first-child{
+    margin-right: 8px;
+}
+.btn_container a{
+    display: block;
+    color: #fff;
+    padding: 5px 20px;
+    border-radius: 4px;
+    background-color: rgb(159, 78, 221);
+}
+
+
+
+
+/* paging */
+.paging_wrapper .active{
+    background: rgb(159, 78, 221);
+}

@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tosei</title>
+    <link rel="stylesheet" href="~/css/reset.css">
+    <link rel="stylesheet" href="~/css/style_general.css" />
+    @if (ViewData["link"] != null && ViewData["link"] is string)
+    {
+       <link rel="stylesheet" href="@Url.Content(ViewData["link"] as string)">
+    }
+    <link rel="stylesheet" href="~/css/style_990.css" media="screen and (max-width: 990px)">
+    <link rel="stylesheet" href="~/css/style_650.css" media="screen and (max-width: 650px)">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+         /* header-down catalog list */
+        .filter_car_wrapper_list {
+            padding: 23px 0 38px 0;
+            background: #F7F7F9;
+            box-shadow: -1px 0px 0px #E5E5EF;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container-wrapper">
+
+        <partial name="_NavigationMenuPartial" />
+
+        <div class="pull-down">
+
+            @RenderBody()
+
+            <!-- footer -->
+            <footer class="footer_down">
+                <div class="container">
+                    <div class="copy_fight">&#169 安い車 2222р. Всі права захищені</div>
+                    <div class="information_container">
+                        <div class="text_container">Продаж вантажної та спецтехніки, легкових автомобілів, водної
+                             техніки. Будь-яка техніка з Японії, США, Кореї, Китаю та Сінгапуру. Авто з аукціонів.</div>
+                        <div>
+                            <div class="phone_number_one">+380584578874</div>
+                            <div class="phone_number_two">+380459784545</div>
+                        </div>
+                        <div class="gmail">ljsdfjk@gmail.ua</div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+    </div>
+
+    <script>
+        // pop up
+        let pop_up = document.querySelector('.pop-up');
+
+        function turnPopUpOn() {
+            pop_up.style.display = 'block';
+        }
+
+        function turnPopUpOff() {
+            pop_up.style.display = 'none';
+        }
+        // pop up end
+    </script>
+
+    @if (ViewData["js"] != null && ViewData["js"] is string[])
+    {
+        @foreach (var path in ViewData["js"] as string[])
+        {
+            <script src="@Url.Content(path)"></script>
+        }
+    }
+
+    <script src="~/js/general.js"></script>
+</body>
+
+</html>

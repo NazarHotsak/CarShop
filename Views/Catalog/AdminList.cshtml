@@ -1,0 +1,70 @@
+﻿@model CatalogCarList
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="~/css/reset.css">
+    <link rel="stylesheet" href="~/css/style_general.css" />
+    <link rel="stylesheet" href="~/css/style_catalog.css" />
+    <link rel="stylesheet" href="~/css/style_990.css" media="screen and (max-width: 990px)">
+    <link rel="stylesheet" href="~/css/style_650.css" media="screen and (max-width: 650px)">
+    <link rel="stylesheet" href="~/css/style_admin_list.css" />
+</head>
+
+<body>
+    <div class="header">
+        <div class="header_container">
+            <div>Catalog</div>
+            <a asp-action="Create" asp-controller="Admin" class="btn_create">Create</a>
+        </div>
+    </div>
+
+    <div class="container-wrapper">
+
+        <div class="pull-down">
+
+            <div class="container">
+
+                <div class="catalog_wrapper">
+
+                    @foreach (var car in @Model.Cars)
+                    {
+                        <partial name="_ListCarsPartial" model="@car" />
+
+                        <div class="btn_container">
+                            <div>
+                                <a asp-controller="Admin" asp-action="Edit" asp-route-id="@car.CarID" >Edit</a>
+                                <a asp-controller="Admin" asp-action="Delete" asp-route-carName="@car.Name" asp-route-id="@car.CarID" >Delete</a>
+                            </div>
+                            <a asp-action="ViewCar" asp-route-idCar="@car.CarID">View</a>
+                        </div>
+                    }
+
+                </div>
+
+
+                <div page-model="@Model.PagingInfo"
+                     page-action="AdminList"
+                     page-class-active="active"
+                     page-class-next-page="next_page"
+                     page-class-previous-page="previous_page"
+                     page-class-paging="paging_btn"
+                     class="paging_wrapper">
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,181 @@
+﻿@model EditModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="~/css/reset.css">
+    <link rel="stylesheet" href="~/css/style_edit.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">Edit Car</div>
+    </header>
+
+
+
+    <div class="img_wrapper border_2sf">
+        <p>Превю фото</p>
+        <div class="preview_img_container">
+            @Html.PreviewImg(@Model.Car.Name, @Model.Car.CarID)
+        </div>
+        <form asp-action="EditPreviewImg" asp-route-id="@Model.Car.CarID" asp-route-carName="@Model.Car.Name" method="post" enctype="multipart/form-data"
+              class="choose_img_container">
+
+            <label asp-for="Img" class="btn_choose">Вибрати або замінити превю фото</label>
+            <input asp-for="Img" type="file" accept="image/jpeg,image/png,image/jpg" class="choose">
+
+            <div class="chose_imgs_wrapper">
+                <p class="imgs_dont_choose">Фото не вибрано</p>
+            </div>
+
+            <button type="submit">Вибрати</button>
+        </form>
+    </div>
+
+    @if (@Model.Car.CarID != 0)
+    {
+        <div class="border_2sf slider">
+            <a asp-action="EditSlider" asp-route-carName="@Model.Car.Name" asp-route-id="@Model.Car.CarID" class="border_2sf">редогувати слайдер</a>
+        </div>
+    }
+
+    <form asp-action="Edit" method="post" class="form_container">
+        <input type="hidden" asp-for="Car.CarID" />
+        <div>
+            <label asp-for="Car.Name">Назва</label>
+            <input asp-for="Car.Name" type="text">
+        </div>
+        <div>
+            <label asp-for="Car.Status">Статус</label>
+            <div class="select_container">
+                <select asp-for="Car.Status" asp-items="Html.GetEnumSelectList<StatusCar>()">
+                    <option selected disabled value="">Не вибрано</option>
+                </select>
+            </div>
+        </div>
+        <div>
+            <label asp-for="Car.Brand">Бренд</label>
+            <input asp-for="Car.Brand" type="text">
+        </div>
+        <div>
+            <label asp-for="Car.Year">Рік</label>
+            <input asp-for="Car.Year" type="number" min="0" max="10000">
+        </div>
+        <div>
+            <label asp-for="Car.Price">Ціна</label>
+            <input asp-for="Car.Price" min="0" type="number">
+        </div>
+        <div>
+            <label asp-for="Car.EngineCapacity">Обє'м двигуна</label>
+            <input asp-for="Car.EngineCapacity" min="0" type="number">
+        </div>
+        <div>
+            <label asp-for="Car.Mileage">Пробіг</label>
+            <input asp-for="Car.Mileage" min="0" type="number">
+        </div>
+        <div>
+            <label asp-for="Car.DriveType">Тип привода</label>
+            <div class="select_container">
+                <select asp-for="Car.DriveType" asp-items="Html.GetEnumSelectList<DriveType>()">
+                    <option selected disabled value="">Не вибрано</option>
+                </select>
+            </div>
+        </div>
+        <div>
+            <label asp-for="Car.Gearbox">КПП</label>
+            <input asp-for="Car.Gearbox" type="text">
+        </div>
+        <div class="radio">
+            <span>Зібраний або конструктор</span>
+            <div class="mag">
+                <label asp-for="Car.Cut">
+                    <input asp-for="Car.Cut" checked type="radio" value="false"> Зібраний
+                </label>
+            </div>
+            <div>
+                <label asp-for="Car.Cut">
+                    <input asp-for="Car.Cut" type="radio" value="true"> Конструктор
+                </label>
+            </div>
+        </div>
+        <div class="radio">
+            <span>Пошлина</span>
+            <div class="mag">
+                <label asp-for="Car.FullDuty">
+                    <input asp-for="Car.FullDuty" checked type="radio" value="true"> Повна пошлина
+                </label>
+            </div>
+            <div>
+                <label asp-for="Car.FullDuty">
+                    <input asp-for="Car.FullDuty" type="radio" value="false"> Без пошлини
+                </label>
+            </div>
+        </div>
+        <div>
+            <label asp-for="Car.NumberOfShipments">Сумара кількість відправок</label>
+            <input asp-for="Car.NumberOfShipments" min="0" type="number">
+        </div>
+        <div>
+            <label asp-for="Car.SteeringWheelPosition">Положення руля</label>
+            <div class="select_container">
+                <select asp-for="Car.SteeringWheelPosition" asp-items="Html.GetEnumSelectList<SteeringWheelPosition>()">
+                    <option selected value="">Не вибрано</option>
+                </select>
+            </div>
+        </div>
+        <div>
+            <label asp-for="Car.EngineType">Тип двигуна</label>
+            <input asp-for="Car.EngineType" type="text">
+        </div>
+        <div>
+            <label asp-for="Car.BodyType">Тир кузова</label>
+            <input asp-for="Car.BodyType" type="text">
+        </div>
+        <div>
+            <label asp-for="Car.Auction">Аукціон</label>
+            <input asp-for="Car.Auction" type="text">
+        </div>
+        <div>
+            <label asp-for="Car.Mark">Оцінка</label>
+            <input asp-for="Car.Mark" min="0" type="number">
+        </div>
+        <div>
+            <label asp-for="Car.AuctionDate">Дата аукціона</label>
+            <input asp-for="Car.AuctionDate" type="date">
+        </div>
+        <div>
+            <label asp-for="Car.Location">Місцезнаходження</label>
+            <input asp-for="Car.Location" type="text">
+        </div>
+        <div>
+            <label asp-for="Car.Color">Колір</label>
+            <input asp-for="Car.Color" type="text">
+        </div>
+        <div>
+            <label asp-for="Car.Description">Опис</label>
+            <textarea asp-for="Car.Description"></textarea>
+        </div>
+        <button type="submit">Save</button>
+    </form>
+
+    <script src="~/js/new_imgs.js"></script>
+    <script>
+        let preview_img = document.querySelector(".preview_img_container > img");
+        if (preview_img != null && preview_img.attributes["src"].value === "") {
+            preview_img.style.height = "0px";
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+﻿@model ViewModel
+
+
+@{
+    ViewData["link"] = "~/css/style_view_car.css";
+    ViewData["js"] = new string[] { "~/js/view_car.js", "~/js/check_form.js" };
+}
+
+<div class="container">
+
+    <div class="breadcrumbs">
+        <div>Головна</div>
+        <div>Контакти</div>
+        <div>@Model.Car.Name</div>
+    </div>
+
+    <h1 class="bold_font">@Model.Car.Name</h1>
+
+    <div class="skroll_slider_container">
+        <div page-class-img="img_slide"
+             page-car-model="@Model.Car"
+             class="scroll_slider">
+        </div>
+    </div>
+
+    <div class="card_overflow_hidden">
+        <div class="card_type_container">
+            <div class="slide_card_type">
+                <div class="card_type active" onclick="cardActive(0)">Характеристики</div>
+                <div class="card_type" onclick="cardActive(1)">Додаткова інформація</div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="card_imformation_wrapper">
+        <div class="card_imformation_container">
+            <div class="card_imformation options active">
+                <div>Виробник: <span>@Model.Car.Brand</span></div>
+                <div>Рік: <span>@Model.Car.Year</span></div>
+                <div>Статус: <span>@(@Model.Car.Status == StatusCar.InStock ? "В наявності" : "На замовлення")</span></div>
+                <div>Пробіг: <span>@Model.Car.Mileage</span></div>
+
+                <div>
+                    Тип привода: <span>
+                        @(@Model.Car.DriveType == DriveType.rearWheel ? "Задній"
+                        : @Model.Car.DriveType == DriveType.fourWheel ? "4WD" : "Передній")
+                    </span>
+                </div>
+
+                <div>Потужність: <span>@Model.Car.EngineCapacity л.с.</span></div>
+                <div>КПП: <span>@Model.Car.Gearbox</span></div>
+
+                @if (@Model.Car.SteeringWheelPosition != null)
+                {
+                    <div>Руль: <span>@(@Model.Car.SteeringWheelPosition == SteeringWheelPosition.Right ? "Правий" : "Лівий")</span></div>
+                }
+                @if (@Model.Car.EngineType != null)
+                {
+                    <div>Двигатель: <span>@Model.Car.EngineType</span></div>
+                }
+                @if (@Model.Car.Auction != null)
+                {
+                    <div>Аукцион: <span>@Model.Car.Auction </span></div>
+                }
+                @if (@Model.Car.Mark != null)
+                {
+                    <div>Оценка: <span>@Model.Car.Mark</span></div>
+                }
+                @if (@Model.Car.AuctionDate.HasValue)
+                {
+                    <div>Дата аукциона: <span>@Model.Car.AuctionDate.Value.ToString("dd/MM/yyyy")</span></div>
+                }
+                @if (@Model.Car.Location != null)
+                {
+                    <div>Местонахождение: <span>@Model.Car.Location</span></div>
+                }
+                @if (@Model.Car.Color != null)
+                {
+                    <div>Цвет: <span>@Model.Car.Color</span></div>
+                }
+                @if (@Model.Car.BodyType != null)
+                {
+                    <div>Тип кузова: <span>@Model.Car.BodyType</span></div>
+                }
+            </div>
+            <div class="card_imformation description">
+                @if (@Model.Car.Description != null)
+                {
+                    @Model.Car.Description
+                }
+            </div>
+        </div>
+        <div class="card_buying_container">
+            <div class="price_in_city">Стоимость в Україні</div>
+            <div class="bold_font">@Model.Car.Price &#8372</div>
+            @if (@Model.Car.FullDuty == true)
+            {
+                <div class="below_price">Ціна вказана з урахуванням ПДВ</div>
+            }
+            <div class="advice" onclick="turnPopUpOn()">Консультація безкоштовно</div>
+            <div class="application" onclick="turnPopUpOn()">Залишити заявку</div>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="pop-up" style="display: none;">
+    <partial name="_CustomerFormPartial" model="@Model.Customer" />
+</div>

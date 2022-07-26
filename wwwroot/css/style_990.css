@@ -1,0 +1,174 @@
+.container{
+    max-width: 690px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+.container-wrapper{
+    margin: 0;
+    max-width: none;
+}
+.pull-down{
+    padding-top: 80px; 
+    margin-left: 0;
+}
+
+
+
+/* slidebar */
+.slidebar{
+    padding-top: 90px;
+    top: 0;
+    right: 0;
+    z-index: 4;
+    width: 263px;
+    background-color: #fff;
+    opacity: 0;
+    animation: opacityAnimReverse .4s;
+    pointer-events: none;
+}
+.slidebar_active{
+    pointer-events: auto;
+    opacity: 1;
+    animation: opacityAnim .4s;
+}
+.slidebar .logo_name_of_company{
+    display: none;
+}
+
+
+/* btn_menu */
+.btn_menu{
+    display: block;
+}
+
+
+/* header */
+header{
+    margin-left: 0;
+    padding: 20px 20px;
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+}
+header::before{
+    content: '';
+    pointer-events: none;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 3;
+    height: 100%;
+    width: 100vw;
+    background: rgba(0, 0, 0, 0.58);
+    opacity: 0;
+    animation: opacityAnimReverse .3s;
+}
+.header_active::before{
+    opacity: 1;
+    pointer-events: auto;
+    animation: opacityAnim .3s;
+}
+header .container{
+    max-width: none;
+    padding: 0 0;
+    margin: 0;
+}
+header .big_header{
+    display: none;
+}
+header .small_header{
+    display: block;
+}
+
+
+
+/* car filter */
+.filter_car .filter_select{
+    justify-content: space-between;
+}
+.filter_car .search_select_container{
+    margin-right: 0;
+}
+.filter_car .car_type{
+    width: 48%;
+}
+.filter_car .Mileage{
+    width: 48%;
+}
+.filter_car .brand{
+    width: 36%;
+}
+.filter_car .Btn_submit{
+    width: 22%;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+
+
+/* car's card */
+/* catolog */
+.catalog_wrapper{
+    margin-top: 25px;
+}
+.catalog_wrapper .car_cantainer .car_features span{
+    margin-bottom: 8px;
+}
+.catalog_wrapper .car_cantainer{
+    padding: 10px;
+}
+.catalog_wrapper .car_cantainer img{
+    max-width: 100%;
+}
+.catalog_wrapper .car_items_container{
+    width: 35%;
+}
+.catalog_wrapper .car_cantainer img{
+    height: auto;
+    width: auto;
+}
+.catalog_wrapper .img_container{
+    display: flex;
+    margin-right: 20px;
+    height: 305px;
+    width: 65%;
+}
+.catalog_wrapper .car_features:last-child{
+    text-align: left;
+}
+
+
+
+/* footer */
+.footer_down{
+    padding-right: 0;
+}
+footer .information_container{
+    max-width: none;
+}
+footer .gmail{
+    display: none;
+}
+
+
+/* contacts */
+.contact_us_wrapper .contacts_wrapper{
+    max-width: 290px;
+    flex-direction: column; 
+}
+.contact_us_wrapper .address{
+    margin-bottom: 18px;   
+}
+.contact_us_wrapper .special_phone_number{
+    margin-bottom: 16px;
+}
+.contact_us_wrapper .special_phone_number span{
+    margin-top: 5px;
+} 
+.contact_us_wrapper span.phone_number{
+    margin-right: 0;
+    margin-top: 0;
+} 
+.contact_us_wrapper .phone_number_one, .contact_us_wrapper .phone_number_two{
+    margin-bottom: 16px;
+}

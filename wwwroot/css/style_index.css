@@ -1,0 +1,144 @@
+/* header-down */
+.header-down{
+    background-image: url(../images/topBackgroundHeader.jpg);
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    display: block;
+    padding-top: 62px;
+    height: 316px;
+}
+.main-header__text{
+    text-align: center;
+    max-width: 660px;
+    margin: 0 auto;
+    color: #fff;
+    font-weight: bold;
+    font-size: 42px;
+    line-height: 51px;
+}
+
+
+
+/* form-filter-car */
+.filter_car{
+    margin-top: -80px;
+}
+
+
+
+
+/* advantages */
+.advantages_title{
+    text-align: center;
+    margin-top: 78px;
+    margin-bottom: 98px;
+}
+.advantages_wrapper{
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    row-gap: 40px;
+    justify-content: space-between;
+}
+.advantages_wrapper .advantage_contaimer{
+    padding-top: 66px;
+    max-width: 210px;
+    background: url(../images/Earth.png) top left no-repeat;
+}
+.advantage_contaimer > .font_18px_700_black{  
+    margin-bottom: 8px;
+}
+
+
+
+
+
+/* steps buying */
+.steps_buying_title{
+    text-align: center;
+    margin-top: 73px;
+    margin-bottom: 98px;
+}
+.steps_buying_wrapper{
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    justify-content: space-around;
+    row-gap: 57px;
+}
+.steps_buying_wrapper .step_buying_contaimer{
+    max-width: 160px;
+    padding-top: 67px;
+}
+.steps_buying_wrapper .resume{
+    background: url(../images/steps_buying/resume.png) top left no-repeat;
+}
+.steps_buying_wrapper .conversation{
+    background: url(../images/steps_buying/conversation.png) top left no-repeat;
+}
+.steps_buying_wrapper .car{
+    background: url(../images/steps_buying/car.png) top left no-repeat;
+}
+.steps_buying_wrapper .ship{
+    background: url(../images/steps_buying/ship.png) top left no-repeat;
+}
+.steps_buying_wrapper .truck{
+    background: url(../images/steps_buying/delivery-truck.png) top left no-repeat;
+}
+.steps_buying_wrapper .step_buying_contaimer:last-child{
+    padding-top: 0;
+}
+.steps_buying_wrapper .application{
+    box-sizing: content-box;
+    position: relative;
+    width: 100px;
+    border: 1px dashed #CD0000;
+    border-radius: 9px;
+    padding: 64px 21px 113px 21px;
+    text-align: center;
+    color: #000;
+}
+.steps_buying_wrapper .application::after{
+    content: '';
+    display: block;
+    width: 29px;
+    height: 21px;
+    position: absolute;
+    top: 120px;
+    right: 50%;
+    transform: translateX(50%);
+    background: url(../images/mail_send_line.png) center center no-repeat;    
+}
+.steps_buying_wrapper .application:hover{
+    background-color: #CD0000;
+    border: 1px solid #CD0000;
+    color: #fff;
+}
+
+
+/* google map */
+.goole_map{
+    padding: 58px 0;
+    width: 100%;
+    /*height: 428px;*/
+    background: url(../images/google_map.jpg) center center; 
+    object-fit: cover;
+}
+
+
+@media screen and (max-width: 1140px) {
+    .advantages_wrapper{
+        grid-template-columns: repeat(3, auto);
+    }
+    .advantages_wrapper .advantage_contaimer{
+        max-width: 190px;
+    }
+}
+@media screen and (max-width: 650px) {
+    .steps_buying_wrapper{
+        grid-template-columns: repeat(2, auto);
+    }
+    .advantages_wrapper{
+        grid-template-columns: repeat(2, auto);
+        justify-content: space-around;
+    }
+}

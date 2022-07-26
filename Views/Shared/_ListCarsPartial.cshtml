@@ -1,0 +1,40 @@
+﻿@model Car
+
+
+<div class="car_cantainer">
+    <div class="img_container">
+        @Html.PreviewImg(@Model.Name, @Model.CarID)
+    </div>
+
+    <div class="car_items_container">
+        <a class="car_name" asp-controller="Catalog" asp-action="ViewCar" asp-route-idCar="@Model.CarID">@Model.Name</a>
+        <div class="car_features_container">
+            <div class="car_features">
+                <div>Об'єм двигуна <span>@Model.EngineCapacity л.с.</span></div>
+                <div>рік <span>@Model.Year г.</span></div>
+                <div>Пробіг <span>@Model.Mileage км</span></div>
+                <div>
+                    Привод <span>
+                        @(@Model.DriveType == DriveType.rearWheel ? "Задній"
+                        : @Model.DriveType == DriveType.fourWheel ? "4WD" : "Передній")
+                    </span>
+                </div>
+
+                <div>КПП <span>@Model.Gearbox</span></div>
+                @if (@Model.FullDuty)
+                {
+                    <span>Під повне мито</span>
+                }
+            </div>
+            <div class="car_features">
+                <div>Вартість у Україні</div>
+                <div class="price">@Model.Price &#8372</div>
+
+                <div class="stock @(@Model.Status == StatusCar.InStock ? " in-stock" : "order" )">
+                    @(@Model.Status == StatusCar.InStock ? "в наявності" : "на замовлення")
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

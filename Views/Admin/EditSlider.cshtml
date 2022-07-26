@@ -1,0 +1,67 @@
+﻿@model string[]
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="~/css/reset.css">
+    <link rel="stylesheet" href="~/css/style_edit.css">
+    <style>
+        header .container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .btn_blue {
+            padding: 5px 20px;
+            background-color: rgb(78, 164, 221);
+            border-radius: 4px;
+            display: block;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        .img_wrapper .btn_blue {
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div>Edit Car </div>
+            <a asp-action="AddImgsOfSlider" asp-route-id="@ViewData["id"]" asp-route-carName="@ViewData["carName"]"
+               class="btn_blue">Add</a>
+        </div>
+    </header>
+
+    @if (@Model != null)
+    {
+        @foreach (var path in @Model)
+        {
+            <div class="img_wrapper border_2sf">
+                <p>фото слайдера</p>
+                <div class="preview_img_container">
+                    <img src="@path">
+                </div>
+                <a asp-action="RemoveImgOfSlider"
+                asp-route-id="@ViewData["id"]"
+                asp-route-carName="@ViewData["carName"]"
+                asp-route-path="@path" class="btn_blue">Delete</a>
+            </div>
+        }
+    }
+
+
+</body>
+
+</html>

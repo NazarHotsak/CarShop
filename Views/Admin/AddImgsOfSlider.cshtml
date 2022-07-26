@@ -1,0 +1,37 @@
+﻿@model SliderModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="~/css/reset.css">
+    <link rel="stylesheet" href="~/css/style_edit.css">
+</head>
+<body>
+    <header>
+        <div class="container">Add imgs to slider</div>
+    </header>
+
+    <div class="img_wrapper">
+        <form asp-action="AddImgsOfSlider" asp-route-id="@ViewData["id"]" asp-route-carName="@ViewData["carName"]"
+              method="post" enctype="multipart/form-data" class="choose_img_container">
+
+            <label asp-for="@Model.Imgs" class="btn_choose">Вибрати або замінити превю фото</label>
+            <input asp-for="@Model.Imgs" type="file" accept="image/jpeg,image/png" multiple class="choose">
+            <div class="chose_imgs_wrapper">
+                <p class="imgs_dont_choose">Фото не вибрано</p>
+            </div>
+            <button type="submit">Відправити</button>
+        </form>
+    </div>
+
+    <script src="~/js/new_imgs.js"></script>
+</body>
+</html>
